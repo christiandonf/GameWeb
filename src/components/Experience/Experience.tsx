@@ -1,14 +1,14 @@
-import { Application, extend, } from "@pixi/react";
-import { Container, Graphics, Sprite } from 'pixi.js';
+import { Application, extend } from "@pixi/react";
+import { Container, Graphics, Sprite } from "pixi.js";
 import { useCallback, useState, useEffect } from "react";
 import { calculateCanvasSize } from "../../helpers/commoon";
 import { Player } from "../Player/Player";
 
-export default () => {
+export const Experience = () => {
   extend({
     Container,
     Graphics,
-    Sprite
+    Sprite,
   });
   const [canvasSize, setCanvasSize] = useState(calculateCanvasSize);
 
