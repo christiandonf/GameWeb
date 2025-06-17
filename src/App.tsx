@@ -1,9 +1,9 @@
-import Experience from "./components/Experience/Experience"
+import { Experience } from "./components/Experience/Experience";
 const App = () => {
   return (
     <>
       <Experience />
     </>
-  )
-}
-export default App
+  );
+};
+export default App;

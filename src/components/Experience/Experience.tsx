@@ -1,20 +1,26 @@
-import { Application, extend } from "@pixi/react";
-import { Container, Graphics, Sprite } from "pixi.js";
+import { Application } from "@pixi/react";
 import { useCallback, useState, useEffect } from "react";
 import { calculateCanvasSize } from "../../helpers/commoon";
 import { Player } from "../Player/Player";
+import { MainContainer } from "./MainContainer/MainContainer";
 
 export const Experience = () => {
-  extend({
-    Container,
-    Graphics,
-    Sprite,
-  });
   const [canvasSize, setCanvasSize] = useState(calculateCanvasSize);
 
+  const updateCanvasSize = useCallback(() => {
+    setCanvasSize(calculateCanvasSize);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateCanvasSize);
+    return () => window.removeEventListener("resize", updateCanvasSize);
+  }, [updateCanvasSize]);
+
   return (
-    <Application>
-      <Player />
+    <Application resizeTo={window}>
+      <MainContainer canvasSize={canvasSize}>
+        <Player />
+      </MainContainer>
     </Application>
   );
 };
