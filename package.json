@@ -10,14 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@pixi/react": "^8.0.2",
-    "matter-js": "^0.20.0",
-    "pixi.js": "^8.10.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@pixi/react": "^8.0.2",
+    "@types/matter-js": "^0.19.8",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@typescript-eslint/eslint-plugin": "8.34.1",
@@ -34,6 +33,8 @@
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "matter-js": "^0.20.0",
+    "pixi.js": "^8.10.1",
     "prettier": "^3.6.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.1",
