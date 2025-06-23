@@ -1,6 +1,6 @@
-import { Assets, Texture } from "pixi.js";
-import { useEffect, useRef, useState } from "react";
-import { useTick } from "@pixi/react";
+import { Assets, Texture } from 'pixi.js';
+import { useEffect, useRef, useState } from 'react';
+import { useTick } from '@pixi/react';
 
 export function Player() {
   const spriteRef = useRef(null);
@@ -11,7 +11,7 @@ export function Player() {
 
   useEffect(() => {
     if (texture === Texture.EMPTY) {
-      Assets.load("/src/assets/player_idle-01.png").then((result) => {
+      Assets.load('/src/assets/player_idle-01.png').then((result) => {
         setTexture(result);
       });
     }
@@ -21,7 +21,7 @@ export function Player() {
     <pixiSprite
       ref={spriteRef}
       anchor={0.5}
-      eventMode={"static"}
+      eventMode={'static'}
       onClick={() => setIsActive(!isActive)}
       onPointerOver={() => setIsHover(true)}
       onPointerOut={() => setIsHover(false)}

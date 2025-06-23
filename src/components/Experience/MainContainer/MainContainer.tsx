@@ -1,14 +1,11 @@
-import { extend } from "@pixi/react";
-import { Assets, Container, Texture, Sprite } from "pixi.js";
-import { useEffect, useRef, useState, type PropsWithChildren } from "react";
+import { extend } from '@pixi/react';
+import { Assets, Container, Texture, Sprite } from 'pixi.js';
+import { useEffect, useRef, useState, type PropsWithChildren } from 'react';
 interface IMainContainerProps {
   canvasSize: { width: number; height: number };
 }
 
-export const MainContainer = ({
-  canvasSize,
-  children,
-}: PropsWithChildren<IMainContainerProps>) => {
+export const MainContainer = ({ canvasSize, children }: PropsWithChildren<IMainContainerProps>) => {
   extend({
     Container,
     Texture,
@@ -18,7 +15,7 @@ export const MainContainer = ({
   const [texture, setTexture] = useState(Texture.EMPTY);
   useEffect(() => {
     if (texture === Texture.EMPTY) {
-      Assets.load("/src/assets/Tilemap.jpg").then((result) => {
+      Assets.load('/src/assets/Tilemap.jpg').then((result) => {
         setTexture(result);
       });
     }
@@ -26,12 +23,7 @@ export const MainContainer = ({
 
   return (
     <pixiContainer>
-      <pixiSprite
-        ref={spriteRef}
-        width={canvasSize.width}
-        height={canvasSize.height}
-        texture={texture}
-      />
+      <pixiSprite ref={spriteRef} width={canvasSize.width} height={canvasSize.height} texture={texture} />
       {children}
     </pixiContainer>
   );

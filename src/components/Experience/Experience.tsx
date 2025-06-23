@@ -1,8 +1,8 @@
-import { Application } from "@pixi/react";
-import { useCallback, useState, useEffect } from "react";
-import { calculateCanvasSize } from "../../helpers/commoon";
-import { Player } from "../Player/Player";
-import { MainContainer } from "./MainContainer/MainContainer";
+import { Application } from '@pixi/react';
+import { useCallback, useState, useEffect } from 'react';
+import { calculateCanvasSize } from '../../helpers/commoon';
+import { Player } from '../Player/Player';
+import { MainContainer } from './MainContainer/MainContainer';
 
 export const Experience = () => {
   const [canvasSize, setCanvasSize] = useState(calculateCanvasSize);
@@ -12,8 +12,8 @@ export const Experience = () => {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("resize", updateCanvasSize);
-    return () => window.removeEventListener("resize", updateCanvasSize);
+    window.addEventListener('resize', updateCanvasSize);
+    return () => window.removeEventListener('resize', updateCanvasSize);
   }, [updateCanvasSize]);
 
   return (
