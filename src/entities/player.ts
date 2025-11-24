@@ -1,4 +1,4 @@
-import type { KAPLAYCtx, Vec2 } from "kaplay";
+import { Vec2, type KAPLAYCtx } from "kaplay";
 
 export default function makePlayer(k: KAPLAYCtx, posVec2: Vec2, speed) {
   const player = k.add([
@@ -32,6 +32,8 @@ export default function makePlayer(k: KAPLAYCtx, posVec2: Vec2, speed) {
     isMouseDown = false;
   });
 
+  const diagonalFactor = 1 / Math.sqrt(2);
+  
   player.onUpdate(() => {
     if (!k.camPos().eq(player.pos)) {
       k.tween(
@@ -46,6 +48,16 @@ export default function makePlayer(k: KAPLAYCtx, posVec2: Vec2, speed) {
     const worldMousePos = k.toWorld(k.mousePos());
     if (isMouseDown) {
       player.direction = worldMousePos.sub(player.pos).unit();
+    }
+    
+    if (k.isKeyDown("left")) player.direction.x = -1;
+    if (k.isKeyDown("right")) player.direction.x = 1;
+    if (k.isKeyDown("up")) player.direction.y = -1;
+    if (k.isKeyDown("down")) player.direction.y = 1;
+
+    if (player.direction.x && player.direction.y) {
+        player.move(player.direction.scale(diagonalFactor * speed));
+        return;
     }
 
     player.move(player.direction.scale(speed));
