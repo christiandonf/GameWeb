@@ -4,10 +4,6 @@ import initGame from "./initGame";
 
 const ui = document.getElementById("ui") as HTMLCanvasElement;
 const root = createRoot(ui);
-root.render(
-  <StrictMode>
-    <h1>Hello World!</h1>
-  </StrictMode>
-);
+root.render(<StrictMode></StrictMode>);
 
 initGame();

@@ -8,19 +8,20 @@ export default function makeKaplayCtx() {
     debug: true,
     debugKey: "f1",
     canvas: document.getElementById("game") as HTMLCanvasElement,
+    background: [255, 255, 255],
     buttons: {
-        up: {
-            keyboard: ["w, up"]
-        },
-        down: {
-            keyboard: ["s, down"]
-        },
-        left: {
-            keyboard: ["a, left"]
-        },
-        right: {
-            keyboard: ["d, right"]
-        },
-     },
+      up: {
+        keyboard: ["w, up"],
+      },
+      down: {
+        keyboard: ["s, down"],
+      },
+      left: {
+        keyboard: ["a, left"],
+      },
+      right: {
+        keyboard: ["d, right"],
+      },
+    },
   });
 }

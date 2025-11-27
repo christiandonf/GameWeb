@@ -1,4 +1,6 @@
+import makeEnemy from "./entities/enemy";
 import makePlayer from "./entities/player";
+import gameUpdates from "./gameUpdates";
 import makeKaplayCtx from "./kaplayCtx";
 
 export default async function initGame() {
@@ -27,26 +29,14 @@ export default async function initGame() {
   });
   k.loadFont("ibm-regular", "./fonts/IBMPlexSans-Regular.ttf");
   k.loadFont("ibm-bold", "./fonts/IBMPlexSans-Bold.ttf");
-  k.loadSprite("github-logo", "./logos/github-logo.png");
-  k.loadSprite("linkedin-logo", "./logos/linkedin-logo.png");
-  k.loadSprite("youtube-logo", "./logos/youtube-logo.png");
-  k.loadSprite("x-logo", "./logos/x-logo.png");
-  k.loadSprite("substrack-logo", "./logos/substack-logo.png");
-  k.loadSprite("javascript-logo", "./logos/js-logo.png");
-  k.loadSprite("typescript-logo", "./logos/ts-logo.png");
-  k.loadSprite("react-logo", "./logos/react-logo.png");
-  k.loadSprite("next-logo", "./logos/nextjs-logo.png");
-  k.loadSprite("postgres-logo", "./logos/postgres-logo.png");
-  k.loadSprite("html-logo", "./logos/html-logo.png");
-  k.loadSprite("css-logo", "./logos/css-logo.png");
-  k.loadSprite("tailwind-logo", "./logos/tailwind-logo.png");
-  k.loadSprite("python-logo", "./logos/python-logo.png");
-  k.loadSprite("email-logo", "./logos/email-logo.png");
 
   if (k.width() < 1000) {
     k.setCamScale(0.5, 0.5);
   } else {
     k.setCamScale(0.8, 0.8);
   }
-  makePlayer(k, k.vec2(k.center()), 700);
+  const player = makePlayer(k, k.vec2(k.center()), 700);
+  makeEnemy(k, k.vec2(1500, 1500), 400);
+
+  gameUpdates(k, player);
 }
